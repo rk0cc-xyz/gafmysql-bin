@@ -45,7 +45,9 @@ func rangedRepo(page int64, ppi int64) (*PrintContext, error) {
 	start := int64(float64(page-1) * float64(ppi))
 	end := int64(float64(page) * float64(ppi))
 
-	if end > int64(len(ctx)) {
+	if start > int64(len(ctx)) {
+		return nil, nil
+	} else if end > int64(len(ctx)) {
 		end = int64(len(ctx))
 	}
 
@@ -63,6 +65,8 @@ func getContext(page int64, ppi int64) {
 	rp, rperr := rangedRepo(page, ppi)
 	if rperr != nil {
 		panic(rperr)
+	} else if rp == nil {
+		printEmptyJson()
 	}
 	pj, pjerr := json.Marshal(rp)
 	if pjerr != nil {

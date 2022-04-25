@@ -17,20 +17,20 @@ type PrintContext struct {
 }
 
 func main() {
-	setmode := *flag.Bool("set", false, "Archive current data of GitHub repository API")
-	getmode := *flag.Bool("get", false, "Get recent archived data of GitHub repository API")
-	page := *flag.Int64("page", 1, "Display which page of the result returned, default is `1` (`-get` only)")
-	ppi := *flag.Int64("ppi", 10, "How many repositories will be displayed in a single page, default is `10` (only accept 10 - 100 and can be divided by 10, `-get` only)")
+	setmode := flag.Bool("set", false, "Archive current data of GitHub repository API")
+	getmode := flag.Bool("get", false, "Get recent archived data of GitHub repository API")
+	page := flag.Int64("page", 1, "Display which page of the result returned, default is `1` (`-get` only)")
+	ppi := flag.Int64("ppi", 10, "How many repositories will be displayed in a single page, default is `10` (only accept 10 - 100 and can be divided by 10, `-get` only)")
 
 	flag.Parse()
 
-	if setmode && !getmode {
+	if *setmode && !*getmode {
 		serr := gafmysql.ArchiveCurrentAPIToDB()
 		if serr != nil {
 			panic(serr)
 		}
-	} else if getmode && !setmode {
-		getContext(page, ppi)
+	} else if *getmode && !*setmode {
+		getContext(*page, *ppi)
 	} else {
 		flag.PrintDefaults()
 	}

@@ -10,6 +10,8 @@ github.com/rk0cc-xyz/gafmysql v0.0.0-20220425112230-d4d3a6935159 h1:u9wiQWl/E7kP
 github.com/rk0cc-xyz/gafmysql v0.0.0-20220425112230-d4d3a6935159/go.mod h1:fATdEEWD9bOv0gYs8RTxttTOZkRB+BP6mttLZhiAUwE=
 github.com/rk0cc-xyz/gafmysql v1.0.0 h1:kzZlZnpintXFh8cUotXEC0kEha2NyML18HSpHE1gC90=
 github.com/rk0cc-xyz/gafmysql v1.0.0/go.mod h1:fATdEEWD9bOv0gYs8RTxttTOZkRB+BP6mttLZhiAUwE=
+github.com/rk0cc-xyz/gafmysql v1.0.1 h1:5tdlzpCfTI/tnHclUugTI3Z70C1LmqHmIrxW+pSDl90=
+github.com/rk0cc-xyz/gafmysql v1.0.1/go.mod h1:O8XbgXMOebgnqCX2b7CI5I6xqmlPxSPesg4JyPhXHpg=
 github.com/tomnomnom/linkheader v0.0.0-20180905144013-02ca5825eb80 h1:nrZ3ySNYwJbSpD6ce9duiP+QkD3JuLCcWkdaehUS/3Y=
 github.com/tomnomnom/linkheader v0.0.0-20180905144013-02ca5825eb80/go.mod h1:iFyPdL66DjUD96XmzVL3ZntbzcflLnznH0fr99w5VqE=
 github.com/ulikunitz/xz v0.5.10 h1:t92gobL9l3HE202wg3rlk19F6X+JOxl9BBrCCMYEYd8=

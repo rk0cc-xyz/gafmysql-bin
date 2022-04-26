@@ -14,6 +14,8 @@ import (
 type PrintContext struct {
 	LastUpdate string                                `json:"last_update"`
 	Context    []structure.GitHubRepositoryStructure `json:"context"`
+	HasPrev    bool                                  `json:"has_prev"`
+	HasNext    bool                                  `json:"has_next"`
 }
 
 func main() {
@@ -45,15 +47,19 @@ func rangedRepo(page int64, ppi int64) (*PrintContext, error) {
 	start := int64(float64(page-1) * float64(ppi))
 	end := int64(float64(page) * float64(ppi))
 
+	last_page := end > int64(len(ctx))
+
 	if start > int64(len(ctx)) {
 		return nil, nil
-	} else if end > int64(len(ctx)) {
+	} else if last_page {
 		end = int64(len(ctx))
 	}
 
 	return &PrintContext{
 		Context:    ctx[start:end],
 		LastUpdate: *lu,
+		HasPrev:    page > 1,
+		HasNext:    last_page,
 	}, nil
 }
 

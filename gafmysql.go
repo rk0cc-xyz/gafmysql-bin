@@ -59,7 +59,7 @@ func rangedRepo(page int64, ppi int64) (*PrintContext, error) {
 		Context:    ctx[start:end],
 		LastUpdate: *lu,
 		HasPrev:    page > 1,
-		HasNext:    last_page,
+		HasNext:    !last_page,
 	}, nil
 }
 

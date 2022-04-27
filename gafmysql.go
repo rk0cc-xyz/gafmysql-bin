@@ -44,6 +44,15 @@ func rangedRepo(page int64, ppi int64) (*PrintContext, error) {
 		return nil, gerr
 	}
 
+	if len(ctx) == 0 && page == 1 {
+		return &PrintContext{
+			Context:    []structure.GitHubRepositoryStructure{},
+			LastUpdate: *lu,
+			HasPrev:    false,
+			HasNext:    false,
+		}, nil
+	}
+
 	start := int64(float64(page-1) * float64(ppi))
 	end := int64(float64(page) * float64(ppi))
 
